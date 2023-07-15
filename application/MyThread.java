@@ -191,12 +191,15 @@ public final class MyThread extends Thread
 			ArrayList <MyThread> threads = getNeighbours();
 			for (int i = 0; i < threads.size(); i++)
 			{
-				if(threads.get(i).threadSuspended == false)
+				synchronized(this)
 				{
-					activeCounter++;
-					redBucket += ((Color)threads.get(i).rectangle.getFill()).getRed();
-					greenBucket += ((Color)threads.get(i).rectangle.getFill()).getGreen();
-					blueBucket += ((Color)threads.get(i).rectangle.getFill()).getBlue();
+					if(threads.get(i).threadSuspended == false)
+					{
+						activeCounter++;
+						redBucket += ((Color)threads.get(i).rectangle.getFill()).getRed();
+						greenBucket += ((Color)threads.get(i).rectangle.getFill()).getGreen();
+						blueBucket += ((Color)threads.get(i).rectangle.getFill()).getBlue();
+					}	
 				}
 			}
 			if(activeCounter != 0)

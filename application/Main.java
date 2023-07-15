@@ -6,7 +6,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
-
+//update
 ///Main class used to create GUI and threads.
 public class Main extends Application
 {
@@ -73,6 +73,7 @@ public class Main extends Application
 		
 		///pass the torus to MyThread class
 		///and pass the synchronizer
+		//don't set static objects in another class like that
 		new MyThread().setArrayList(torus);
 		new MyThread().setSynchObject(synchronizer);
 		new MyThread().setNM(n, m);
